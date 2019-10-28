@@ -1,0 +1,7 @@
+C:\Users\LaAaa\Documents\SpecFlowStudy\SpecFlowStudy\SpecFlowStudy.UiTests.CommonTools\bin\Debug\SpecFlowStudy.UiTests.CommonTools.dll
+C:\Users\LaAaa\Documents\SpecFlowStudy\SpecFlowStudy\SpecFlowStudy.UiTests.CommonTools\bin\Debug\SpecFlowStudy.UiTests.CommonTools.pdb
+C:\Users\LaAaa\Documents\SpecFlowStudy\SpecFlowStudy\SpecFlowStudy.UiTests.CommonTools\bin\Debug\WebDriver.dll
+C:\Users\LaAaa\Documents\SpecFlowStudy\SpecFlowStudy\SpecFlowStudy.UiTests.CommonTools\bin\Debug\WebDriver.xml
+C:\Users\LaAaa\Documents\SpecFlowStudy\SpecFlowStudy\SpecFlowStudy.UiTests.CommonTools\obj\Debug\SpecFlowStudy.UiTests.CommonTools.csproj.CopyComplete
+C:\Users\LaAaa\Documents\SpecFlowStudy\SpecFlowStudy\SpecFlowStudy.UiTests.CommonTools\obj\Debug\SpecFlowStudy.UiTests.CommonTools.dll
+C:\Users\LaAaa\Documents\SpecFlowStudy\SpecFlowStudy\SpecFlowStudy.UiTests.CommonTools\obj\Debug\SpecFlowStudy.UiTests.CommonTools.pdb
