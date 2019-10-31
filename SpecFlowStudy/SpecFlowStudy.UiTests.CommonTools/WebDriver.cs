@@ -39,10 +39,11 @@ namespace SpecFlowStudy.UiTests.CommonTools
                 return _wait;
             }
         }
-
+        //TODO: 多瀏覽器測試待寫
         private IWebDriver GetWebDriver()
         {
-            switch (Environment.GetEnvironmentVariable("Test_Browser"))
+            //switch (Environment.GetEnvironmentVariable("Test_Browser"))
+            switch ("Chrome")
             {
                 case "IE":
                     return new InternetExplorerDriver(new InternetExplorerOptions { IgnoreZoomLevel = true }) { Url = SeleniumBaseUrl };
