@@ -21,7 +21,7 @@ namespace SpecFlowStudy.UiTests.CommonTools
             {
                 if (_currentWebDriver == null)
                 {
-                    _currentWebDriver = GetWebDriver();
+                    _currentWebDriver = new ChromeDriver { Url = SeleniumBaseUrl };
                 }
 
                 return _currentWebDriver;
@@ -37,24 +37,6 @@ namespace SpecFlowStudy.UiTests.CommonTools
                     this._wait = new WebDriverWait(Current, TimeSpan.FromSeconds(10));
                 }
                 return _wait;
-            }
-        }
-        //TODO: 多瀏覽器測試待寫
-        private IWebDriver GetWebDriver()
-        {
-            //switch (Environment.GetEnvironmentVariable("Test_Browser"))
-            switch ("Chrome")
-            {
-                case "IE":
-                    return new InternetExplorerDriver(new InternetExplorerOptions { IgnoreZoomLevel = true }) { Url = SeleniumBaseUrl };
-                case "Chrome":
-                    return new ChromeDriver { Url = SeleniumBaseUrl };
-                case "Firefox":
-                    return new FirefoxDriver { Url = SeleniumBaseUrl };
-                case string browser:
-                    throw new NotSupportedException($"{browser} is not a supported browser");
-                default:
-                    throw new NotSupportedException("not supported browser: <null>");
             }
         }
 
