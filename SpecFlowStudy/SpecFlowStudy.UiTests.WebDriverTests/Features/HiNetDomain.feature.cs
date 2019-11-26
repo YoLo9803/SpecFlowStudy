@@ -31,7 +31,7 @@ namespace SpecFlowStudy.UiTests.WebDriverTests.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "HiNetDomain", "\tIn order to 購買網域\r\n\tAs a 潛在消費者\r\n\tI want to 知道我想要購買的網域有沒有人使用", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "HiNetDomain", "\tIn order to 購買網域\r\n\tAs a 潛在消費者\r\n\tI want to 知道我想要購買的網域有沒有人使用並購買", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -70,11 +70,11 @@ namespace SpecFlowStudy.UiTests.WebDriverTests.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Basepage is the main page of Domain-HiNet")]
+        [NUnit.Framework.DescriptionAttribute("首頁是Domain HiNet")]
         [NUnit.Framework.CategoryAttribute("basePage")]
-        public virtual void BasepageIsTheMainPageOfDomain_HiNet()
+        public virtual void 首頁是DomainHiNet()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Basepage is the main page of Domain-HiNet", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("首頁是Domain HiNet", null, new string[] {
                         "basePage"});
 #line 7
 this.ScenarioInitialize(scenarioInfo);
@@ -82,17 +82,17 @@ this.ScenarioInitialize(scenarioInfo);
 #line 8
  testRunner.Given("I navigated to /", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
- testRunner.Then("browser title is HiNet 域名註冊", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The function title should be HiNet 域名註冊", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Domain is being used")]
+        [NUnit.Framework.DescriptionAttribute("網域已被使用")]
         [NUnit.Framework.CategoryAttribute("checkDomain")]
-        public virtual void DomainIsBeingUsed()
+        public virtual void 網域已被使用()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Domain is being used", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("網域已被使用", null, new string[] {
                         "checkDomain"});
 #line 12
 this.ScenarioInitialize(scenarioInfo);
@@ -100,13 +100,189 @@ this.ScenarioInitialize(scenarioInfo);
 #line 13
  testRunner.Given("I navigated to /", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 14
- testRunner.And("I typed the domain name google", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I typed the domain name gss", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
- testRunner.And("I choose the domain .com", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I choose the domain .com.tw", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
  testRunner.When("I press the button 查詢", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 17
- testRunner.Then("The result should be google.com 已被註冊", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The result should be gss.com.tw 已被註冊", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("搜尋網域, 填寫資料無誤後取消購買")]
+        [NUnit.Framework.CategoryAttribute("purchasingConditions")]
+        [NUnit.Framework.TestCaseAttribute("B201251014", "王曉明", "chris", "wang", "10653", "台北市大安區忠孝東路三段217巷10號", "No. 10, Aly. 3, Ln. 217, Sec. 3, Zhongxiao E. Rd., Da’an Dist., Taipei City 106, " +
+            "Taiwan (R.O.C.)", "Taipei", "979123456", "0979123456", "s0979123456@gmail.com", "s0979654321@gmail.com", "FFFFfff@8", "FFFFfff@8", null)]
+        [NUnit.Framework.TestCaseAttribute("B201251014", "王大明", "chris", "wang", "10653", "台北市大安區忠孝東路三段217巷10號", "No. 10, Aly. 3, Ln. 217, Sec. 3, Zhongxiao E. Rd., Da’an Dist., Taipei City 106, " +
+            "Taiwan (R.O.C.)", "Taipei", "979123456", "0979123456", "s0979123456@gmail.com", "s0979654321@gmail.com", "FFFFfff@8", "FFFFfff@8", null)]
+        [NUnit.Framework.TestCaseAttribute("B201251014", "王中明", "chris", "wang", "10653", "台北市大安區忠孝東路三段217巷10號", "No. 10, Aly. 3, Ln. 217, Sec. 3, Zhongxiao E. Rd., Da’an Dist., Taipei City 106, " +
+            "Taiwan (R.O.C.)", "Taipei", "979123456", "0979123456", "s0979123456@gmail.com", "s0979654321@gmail.com", "FFFFfff@8", "FFFFfff@8", null)]
+        public virtual void 搜尋網域填寫資料無誤後取消購買(string id, string cName, string eFirstName, string eLastName, string pCode, string cAddress, string eAddress, string city, string contactNumber, string cellphone, string email, string backupEmail, string domainPw, string confirmDomainPw, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "purchasingConditions"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("搜尋網域, 填寫資料無誤後取消購買", null, @__tags);
+#line 20
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 21
+ testRunner.Given("I navigated to /", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 22
+ testRunner.And("I typed the domain name chrisFsWang", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 23
+ testRunner.And("I choose the domain .cc", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 24
+ testRunner.And("I press the button 查詢", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 25
+ testRunner.And("I press the button 確定送出", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
+ testRunner.And("I press the button 下一步", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "IdentityNumber",
+                        "ChineseName",
+                        "EnglishFirstName",
+                        "EnglishLastName",
+                        "PostalCode",
+                        "ChineseAddress",
+                        "EnglishAddress",
+                        "City",
+                        "ContactNumber",
+                        "Cellphone",
+                        "Email",
+                        "BackupEmail",
+                        "DomainPassword",
+                        "ConfirmDomainPassword"});
+            table1.AddRow(new string[] {
+                        string.Format("{0}", id),
+                        string.Format("{0}", cName),
+                        string.Format("{0}", eFirstName),
+                        string.Format("{0}", eLastName),
+                        string.Format("{0}", pCode),
+                        string.Format("{0}", cAddress),
+                        string.Format("{0}", eAddress),
+                        string.Format("{0}", city),
+                        string.Format("{0}", contactNumber),
+                        string.Format("{0}", cellphone),
+                        string.Format("{0}", email),
+                        string.Format("{0}", backupEmail),
+                        string.Format("{0}", domainPw),
+                        string.Format("{0}", confirmDomainPw)});
+#line 27
+ testRunner.And("Enter form details", ((string)(null)), table1, "And ");
+#line 30
+ testRunner.And("I choose the checkBox 電子發票由上方註冊資料帶入", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 31
+ testRunner.And("I choose the checkBox 網域名稱申購約定條款", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 32
+ testRunner.And("I choose the checkBox 中華電信個資蒐集告知條款", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 33
+ testRunner.And("I choose the checkBox 同意推介個人化商品服務", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 34
+ testRunner.And("I press the button 確定", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 35
+ testRunner.When("I press the button 取消購買", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 36
+ testRunner.Then("The function title should be 選擇域名", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("搜尋網域, 填寫資料錯誤後顯示訊息")]
+        [NUnit.Framework.CategoryAttribute("purchasingConditions")]
+        [NUnit.Framework.TestCaseAttribute("請選擇是否同意中華電信股份有限公司推介多元化商品服務！", "B201251014", "王曉明", "chris", "wang", "10653", "台北市大安區忠孝東路三段217巷10號", "No. 10, Aly. 3, Ln. 217, Sec. 3, Zhongxiao E. Rd., Da’an Dist., Taipei City 106, " +
+            "Taiwan (R.O.C.)", "Taipei", "979123456", "0979123456", "s0979123456@gmail.com", "s0979654321@gmail.com", "FFFFfff@8", "FFFFfff@8", null)]
+        public virtual void 搜尋網域填寫資料錯誤後顯示訊息(
+                    string errorMessage, 
+                    string id, 
+                    string cName, 
+                    string eFirstName, 
+                    string eLastName, 
+                    string pCode, 
+                    string cAddress, 
+                    string eAddress, 
+                    string city, 
+                    string contactNumber, 
+                    string cellphone, 
+                    string email, 
+                    string backupEmail, 
+                    string domainPw, 
+                    string confirmDomainPw, 
+                    string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "purchasingConditions"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("搜尋網域, 填寫資料錯誤後顯示訊息", null, @__tags);
+#line 45
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 46
+ testRunner.Given("I navigated to /", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 47
+ testRunner.And("I typed the domain name chrisFsWang", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 48
+ testRunner.And("I choose the domain .cc", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 49
+ testRunner.And("I press the button 查詢", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 50
+ testRunner.And("I press the button 確定送出", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 51
+ testRunner.And("I press the button 下一步", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "IdentityNumber",
+                        "ChineseName",
+                        "EnglishFirstName",
+                        "EnglishLastName",
+                        "PostalCode",
+                        "ChineseAddress",
+                        "EnglishAddress",
+                        "City",
+                        "ContactNumber",
+                        "Cellphone",
+                        "Email",
+                        "BackupEmail",
+                        "DomainPassword",
+                        "ConfirmDomainPassword"});
+            table2.AddRow(new string[] {
+                        string.Format("{0}", id),
+                        string.Format("{0}", cName),
+                        string.Format("{0}", eFirstName),
+                        string.Format("{0}", eLastName),
+                        string.Format("{0}", pCode),
+                        string.Format("{0}", cAddress),
+                        string.Format("{0}", eAddress),
+                        string.Format("{0}", city),
+                        string.Format("{0}", contactNumber),
+                        string.Format("{0}", cellphone),
+                        string.Format("{0}", email),
+                        string.Format("{0}", backupEmail),
+                        string.Format("{0}", domainPw),
+                        string.Format("{0}", confirmDomainPw)});
+#line 52
+ testRunner.And("Enter form details", ((string)(null)), table2, "And ");
+#line 55
+ testRunner.And("I choose the checkBox 電子發票由上方註冊資料帶入", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 56
+ testRunner.And("I choose the checkBox 網域名稱申購約定條款", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 57
+ testRunner.And("I choose the checkBox 中華電信個資蒐集告知條款", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 58
+ testRunner.And("I press the button 確定", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 59
+ testRunner.Then(string.Format("The alert message of browser should be {0}", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
