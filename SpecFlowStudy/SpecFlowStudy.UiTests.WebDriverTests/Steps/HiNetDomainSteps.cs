@@ -72,91 +72,11 @@ namespace SpecFlowStudy.UiTests.WebDriverTests.Steps
             webDriver.Navigate().GoToUrl(string.Format("{0}{1}", webDriver.Url, url));
         }
         
-        [Then(@"The function title should be (.*)")]
-        public void ThenTheFunctionTitleShouldBe(string text)
+        [Then(@"The title should be (.*)")]
+        public void ThenTheTitleShouldBe(string text)
         {
             var result = _webDriver.Wait.Until(d => d.FindElement(By.XPath("//b/span")));
-            Assert.AreEqual(text, result.Text);
-        }
-
-        [Given(@"I typed the domain name (.*)")]
-        public void GivenITypedTheDomainName(string domainName)
-        {
-            var domainNameTextBox = _webDriver.Wait.Until(d => d.FindElement(By.CssSelector(".form-control")));
-            domainNameTextBox.SendKeys(domainName);
-        }
-
-        [Given(@"I choose the domain (.*)")]
-        public void GivenIChooseTheDomain(string domain)
-        {
-            var _com = _webDriver.Wait.Until(d => d.FindElement(By.CssSelector(_webElementIdentifier[domain])));
-            _com.Click();
-        }
-
-        [When(@"I press the button (.*)")]
-        public void WhenIPressTheButton(string buttonText)
-        {
-            var sendingButton = _webDriver.Wait.Until(ExpectedConditions.ElementToBeClickable(
-                By.XPath(string.Format("//button[contains(.,'{0}')]", buttonText))));
-            sendingButton.Click();
-        }
-
-        [Given(@"I press the button (.*)")]
-        public void GivenIPressTheButton(string buttonText)
-        {
-            var sendingButton = _webDriver.Wait.Until(ExpectedConditions.ElementToBeClickable(
-                By.XPath(string.Format("//button[contains(.,'{0}')]", buttonText))));
-            sendingButton.Click();
-        }
-
-        [Given(@"Enter form details")]
-        public void GivenEnterFormDetails(Table table)
-        {
-            TableRow row = table.Rows.Single();
-            IWebElement textBox;
-            textBox = _webDriver.Wait.Until(d => d.FindElement(By.CssSelector(_webElementIdentifier["IdentityNumber"])));
-            textBox.SendKeys(row["IdentityNumber"].ToString());
-            textBox = _webDriver.Wait.Until(d => d.FindElement(By.CssSelector(_webElementIdentifier["ChineseName"])));
-            textBox.SendKeys(row["ChineseName"].ToString());
-            textBox = _webDriver.Wait.Until(d => d.FindElement(By.CssSelector(_webElementIdentifier["EnglishFirstName"])));
-            textBox.SendKeys(row["EnglishFirstName"].ToString());
-            textBox = _webDriver.Wait.Until(d => d.FindElement(By.CssSelector(_webElementIdentifier["EnglishLastName"])));
-            textBox.SendKeys(row["EnglishLastName"].ToString());
-            textBox = _webDriver.Wait.Until(d => d.FindElement(By.CssSelector(_webElementIdentifier["PostalCode"])));
-            textBox.SendKeys(row["PostalCode"].ToString());
-            textBox = _webDriver.Wait.Until(d => d.FindElement(By.CssSelector(_webElementIdentifier["ChineseAddress"])));
-            textBox.SendKeys(row["ChineseAddress"].ToString());
-            textBox = _webDriver.Wait.Until(d => d.FindElement(By.CssSelector(_webElementIdentifier["EnglishAddress"])));
-            textBox.SendKeys(row["EnglishAddress"].ToString());
-            textBox = _webDriver.Wait.Until(d => d.FindElement(By.CssSelector(_webElementIdentifier["City"])));
-            textBox.SendKeys(row["City"].ToString());
-            textBox = _webDriver.Wait.Until(d => d.FindElement(By.CssSelector(_webElementIdentifier["ContactNumber"])));
-            textBox.SendKeys(row["ContactNumber"].ToString());
-            textBox = _webDriver.Wait.Until(d => d.FindElement(By.CssSelector(_webElementIdentifier["Cellphone"])));
-            textBox.SendKeys(row["Cellphone"].ToString());
-            textBox = _webDriver.Wait.Until(d => d.FindElement(By.CssSelector(_webElementIdentifier["Email"])));
-            textBox.SendKeys(row["Email"].ToString());
-            textBox = _webDriver.Wait.Until(d => d.FindElement(By.CssSelector(_webElementIdentifier["BackupEmail"])));
-            textBox.SendKeys(row["BackupEmail"].ToString());
-            textBox = _webDriver.Wait.Until(d => d.FindElement(By.Id(_webElementIdentifier["DomainPassword_id"])));
-            textBox.SendKeys(row["DomainPassword"].ToString());
-            textBox = _webDriver.Wait.Until(d => d.FindElement(By.Name(_webElementIdentifier["ConfirmDomainPassword_name"])));
-            textBox.SendKeys(row["ConfirmDomainPassword"].ToString());
-        }
-
-        [Then(@"The result should be (.*)")]
-        public void ThenTheResultShouldBe(string domainStatus)
-        {
-            var result = _webDriver.Wait.Until(d => d.FindElement(By.CssSelector("td:nth-child(3)")));
-            Assert.AreEqual(domainStatus, result.Text);
-        }
-
-        [Then(@"The alert message of browser should be (.*)")]
-        public void ThenTheAlertMessageOfBrowserShouldBe(string errorMessage)
-        {
-            var alert = _webDriver.Wait.Until(d => d.SwitchTo().Alert());
-            Assert.AreEqual(errorMessage+"\r\n", alert.Text);
-            alert.Accept();
+            Assert.AreEqual(text, _webDriver.Current.Title);
         }
 
         [AfterScenario]
