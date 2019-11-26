@@ -72,11 +72,11 @@ namespace SpecFlowStudy.UiTests.WebDriverTests.Steps
             webDriver.Navigate().GoToUrl(string.Format("{0}{1}", webDriver.Url, url));
         }
         
-        [Then(@"The title should be (.*)")]
-        public void ThenTheTitleShouldBe(string text)
+        [Then(@"The function title should be (.*)")]
+        public void ThenTheFunctionTitleShouldBe(string text)
         {
             var result = _webDriver.Wait.Until(d => d.FindElement(By.XPath("//b/span")));
-            Assert.AreEqual(text, _webDriver.Current.Title);
+            Assert.AreEqual(text, result.Text);
         }
 
         [Given(@"I typed the domain name (.*)")]

@@ -6,7 +6,7 @@
 @basePage
 Scenario: 首頁是Domain HiNet
 	Given I navigated to /
-	Then The title should be HiNet 域名註冊
+	Then The function title should be HiNet 域名註冊
 
 @checkDomain
 Scenario: 網域已被使用
