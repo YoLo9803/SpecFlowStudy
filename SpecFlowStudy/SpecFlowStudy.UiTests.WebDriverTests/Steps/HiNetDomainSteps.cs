@@ -1,14 +1,9 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System;
 using TechTalk.SpecFlow;
 using SpecFlowStudy.UiTests.CommonTools;
 using System.Configuration;
 using NUnit.Framework;
-using System.Collections.Generic;
-using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
-using System.Linq;
 
 namespace SpecFlowStudy.UiTests.WebDriverTests.Steps
 {
@@ -20,6 +15,16 @@ namespace SpecFlowStudy.UiTests.WebDriverTests.Steps
         public HiNetDomainSteps()
         {
             
+        }
+
+        [Given(@"我選擇(.*)瀏覽器")]
+        public void Given我選擇瀏覽器(string browserName)
+        {
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            AppSettingsSection app = config.AppSettings;
+            app.Settings["browser"].Value = browserName;
+            config.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection("appSettings");
         }
 
         [Given(@"I navigated to (.*)")]

@@ -90,7 +90,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Features\HiNetDomain-chrome.feature" />
+    <None Include="Features\HiNetDomain-Firefox.feature" />
     <None Include="Features\HiNetDomain.feature" />
+    <None Include="Features\HiNetDomain-IE.feature" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
