@@ -73,7 +73,7 @@ namespace SpecFlowStudy.UiTests.WebDriverTests.Features
         {
 #line 6
 #line 7
- testRunner.Given("我選擇Chrome瀏覽器", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("我選擇在windows平台運行Chrome瀏覽器", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         

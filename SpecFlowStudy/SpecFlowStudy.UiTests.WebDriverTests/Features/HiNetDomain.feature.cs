@@ -69,6 +69,14 @@ namespace SpecFlowStudy.UiTests.WebDriverTests.Features
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 6
+#line 7
+ testRunner.Given("我選擇在windows平台運行Chrome瀏覽器", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("首頁是Domain HiNet")]
         [NUnit.Framework.CategoryAttribute("basePage")]
@@ -76,12 +84,14 @@ namespace SpecFlowStudy.UiTests.WebDriverTests.Features
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("首頁是Domain HiNet", null, new string[] {
                         "basePage"});
-#line 7
+#line 10
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 8
+#line 6
+this.FeatureBackground();
+#line 11
  testRunner.Given("I navigated to /", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 9
+#line 12
  testRunner.Then("The title should be HiNet 域名註冊", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

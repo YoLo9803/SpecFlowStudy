@@ -17,12 +17,13 @@ namespace SpecFlowStudy.UiTests.WebDriverTests.Steps
             
         }
 
-        [Given(@"我選擇(.*)瀏覽器")]
-        public void Given我選擇瀏覽器(string browserName)
+        [Given(@"我選擇在(.*)平台運行(.*)瀏覽器")]
+        public void Given我選擇在平台運行瀏覽器(string platformName, string browserName)
         {
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             AppSettingsSection app = config.AppSettings;
             app.Settings["browser"].Value = browserName;
+            app.Settings["platform"].Value = platformName;
             config.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
         }

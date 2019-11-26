@@ -16,6 +16,8 @@ namespace SpecFlowStudy.UiTests.CommonTools
 
         public string _seleniumBaseUrl => ConfigurationManager.AppSettings["seleniumBaseUrl"];
 
+        public string _browserPlatform => ConfigurationManager.AppSettings["platform"];
+
         private string _browserConfig => ConfigurationManager.AppSettings["browser"];
 
         public IWebDriver Current
@@ -43,7 +45,7 @@ namespace SpecFlowStudy.UiTests.CommonTools
                 return _wait;
             }
         }
-        //TODO: 多瀏覽器測試待寫
+
         private IWebDriver GetWebDriver()
         {
             DriverOptions desiredCapabilities;
@@ -61,7 +63,7 @@ namespace SpecFlowStudy.UiTests.CommonTools
                 default:
                     throw new NotSupportedException($"{_browserConfig} is not a supported browser");
             }
-
+            desiredCapabilities.PlatformName = _browserPlatform;
             return new RemoteWebDriver(new Uri(ConfigurationManager.AppSettings["seleniumHub"]), desiredCapabilities);
         }
 
