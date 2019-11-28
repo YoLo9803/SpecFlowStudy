@@ -15,7 +15,7 @@ namespace SpecFlowStudy.UiTests.WebDriverTests.Steps
     [Binding]
     public class HiNetDomainSteps
     {
-        private WebDriver _webDriver;
+        private IWebDriver _webDriver;
 
         public HiNetDomainSteps()
         {
@@ -25,18 +25,27 @@ namespace SpecFlowStudy.UiTests.WebDriverTests.Steps
         [Given(@"I navigated to (.*)")]
         public void GivenINavigatedTo(string url)
         {
-            _webDriver = new WebDriver();
-            IWebDriver webDriver = _webDriver.Current;
-            webDriver.Manage().Window.Maximize();
-            webDriver.Navigate().GoToUrl(string.Format("{0}{1}", webDriver.Url, url));
+            _webDriver = new ChromeDriver { Url = ConfigurationManager.AppSettings["seleniumBaseUrl"]};
+            _webDriver.Manage().Window.Maximize();
+            _webDriver.Navigate().GoToUrl(string.Format("{0}{1}", _webDriver.Url, url));
         }
         
         [Then(@"The title should be (.*)")]
         public void ThenTheTitleShouldBe(string text)
         {
-            var result = _webDriver.Wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//b/span")));
-            Assert.AreEqual(text, _webDriver.Current.Title);
+            var wait = new WebDriverWait(_webDriver, TimeSpan.FromSeconds(10));
+            var result = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//b/span")));
+            Assert.AreEqual(text, _webDriver.Title);
         }
+
+        [Then(@"The The function text should be (.*)")]
+        public void ThenTheTheFunctionTextShouldBe(string text)
+        {
+            var wait = new WebDriverWait(_webDriver, TimeSpan.FromSeconds(10));
+            var element = wait.Until(d => d.FindElement(By.XPath("//section[@id='applydomain']/div/div/div/b/span")));
+            Assert.AreEqual(text, element.Text);
+        }
+
 
         [AfterScenario]
         public void CloseBrowser()
