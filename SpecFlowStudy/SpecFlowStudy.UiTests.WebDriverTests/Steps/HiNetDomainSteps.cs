@@ -2,7 +2,6 @@
 using OpenQA.Selenium.Chrome;
 using System;
 using TechTalk.SpecFlow;
-using SpecFlowStudy.UiTests.CommonTools;
 using System.Configuration;
 using NUnit.Framework;
 using System.Collections.Generic;
@@ -37,6 +36,15 @@ namespace SpecFlowStudy.UiTests.WebDriverTests.Steps
             var result = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//b/span")));
             Assert.AreEqual(text, _webDriver.Title);
         }
+
+        [Then(@"The function text should be (.*)")]
+        public void ThenTheFunctionTextShouldBe(string text)
+        {
+            var wait = new WebDriverWait(_webDriver, TimeSpan.FromSeconds(10));
+            var element = wait.Until(d => d.FindElement(By.XPath("//section[@id='noSuchElement']/div/div/div/b/span")));
+            Assert.AreEqual(text, element.Text);
+        }
+
 
         [AfterScenario]
         public void CloseBrowser()
