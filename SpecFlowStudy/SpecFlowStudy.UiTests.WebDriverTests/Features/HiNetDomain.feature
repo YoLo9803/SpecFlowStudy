@@ -7,7 +7,3 @@
 Scenario: 首頁是Domain HiNet
 	Given I navigated to /
 	Then The title should be HiNet 域名註冊
-
-Scenario: 首頁功能為選擇域名
-	Given I navigated to /
-	Then The The function text should be 選擇域名

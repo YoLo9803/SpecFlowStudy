@@ -38,15 +38,6 @@ namespace SpecFlowStudy.UiTests.WebDriverTests.Steps
             Assert.AreEqual(text, _webDriver.Title);
         }
 
-        [Then(@"The The function text should be (.*)")]
-        public void ThenTheTheFunctionTextShouldBe(string text)
-        {
-            var wait = new WebDriverWait(_webDriver, TimeSpan.FromSeconds(10));
-            var element = wait.Until(d => d.FindElement(By.XPath("//section[@id='applydomain']/div/div/div/b/span")));
-            Assert.AreEqual(text, element.Text);
-        }
-
-
         [AfterScenario]
         public void CloseBrowser()
         {
