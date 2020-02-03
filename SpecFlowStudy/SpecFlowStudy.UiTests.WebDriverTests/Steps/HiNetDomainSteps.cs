@@ -16,31 +16,20 @@ namespace SpecFlowStudy.UiTests.WebDriverTests.Steps
     {
         private IWebDriver _webDriver;
 
-        public HiNetDomainSteps()
+        [Given(@"I navigated to https://domain.hinet.net")]
+        public void GivenINavigatedTo()
         {
-            
+            _webDriver = new ChromeDriver();
+            _webDriver.Manage().Window.Maximize();
+            _webDriver.Navigate().GoToUrl("https://domain.hinet.net");
         }
 
-        [Given(@"I navigated to (.*)")]
-        public void GivenINavigatedTo(string url)
-        {
-            _webDriver = new ChromeDriver { Url = ConfigurationManager.AppSettings["seleniumBaseUrl"]};
-            _webDriver.Manage().Window.Maximize();
-            _webDriver.Navigate().GoToUrl(string.Format("{0}{1}", _webDriver.Url, url));
-        }
-        
-        [Then(@"The title should be (.*)")]
-        public void ThenTheTitleShouldBe(string text)
+        [Then(@"The title should be HiNet 域名註冊")] 
+        public void ThenTheTitleShouldBe()
         {
             var wait = new WebDriverWait(_webDriver, TimeSpan.FromSeconds(10));
             var result = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//b/span")));
-            Assert.AreEqual(text, _webDriver.Title);
-        }
-
-
-        [AfterScenario]
-        public void CloseBrowser()
-        {
+            Assert.AreEqual("HiNet 域名註冊", _webDriver.Title);
             _webDriver.Quit();
         }
     }

@@ -1,9 +1,13 @@
 ﻿Feature: HiNetDomain
-	In order to 購買網域
-	As a 潛在消費者
-	I want to 知道我想要購買的網域有沒有人使用並購買
+	In order to 測試網站能否使用
+	As a 網站使用者
+	I want to 前往網站並確認是否正常
 
 @basePage
 Scenario: 首頁是Domain HiNet
-	Given I navigated to /
+	Given I navigated to https://domain.hinet.net
 	Then The title should be HiNet 域名註冊
+
+
+
+
