@@ -8,6 +8,9 @@ Scenario: 首頁是Domain HiNet
 	Given I navigated to https://domain.hinet.net
 	Then The title should be HiNet 域名註冊
 
-
+@assertText
+Scenario: 進入首頁後應該進到選擇域名頁面
+	Given I navigated to https://domain.hinet.net
+	Then The tag should be 選擇域名
 
 

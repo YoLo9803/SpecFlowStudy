@@ -86,6 +86,24 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("進入首頁後應該進到選擇域名頁面")]
+        [NUnit.Framework.CategoryAttribute("assertText")]
+        public virtual void 進入首頁後應該進到選擇域名頁面()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("進入首頁後應該進到選擇域名頁面", null, new string[] {
+                        "assertText"});
+#line 12
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 13
+ testRunner.Given("I navigated to https://domain.hinet.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 14
+ testRunner.Then("The tag should be 選擇域名", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

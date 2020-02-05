@@ -32,5 +32,28 @@ namespace SpecFlowStudy.UiTests.WebDriverTests.Steps
             Assert.AreEqual("HiNet 域名註冊", _webDriver.Title);
             _webDriver.Quit();
         }
+
+        /// <summary>
+        /// find element(implicit wait)
+        /// </summary>
+        //[Then(@"The tag should be 選擇域名")]
+        //public void ThenTheTagShouldBe選擇域名()
+        //{
+        //    IWebElement element = _webDriver.FindElement(By.XPath("//section[@id='applydomain']/div/div/div/b/span"));
+        //    Assert.AreEqual("選擇域名", element.Text);
+        //    _webDriver.Quit();
+        //}
+
+        /// <summary>
+        /// WebDriverWait + ExpectedCondition(Explicit wait)
+        /// </summary>
+        [Then(@"The tag should be 選擇域名")]
+        public void ThenTheTagShouldBe選擇域名()
+        {
+            var wait = new WebDriverWait(_webDriver, TimeSpan.FromSeconds(10));
+            var element = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//section[@id='applydomain']/div/div/div/b/span")));
+            Assert.AreEqual("選擇域名", element.Text);
+            _webDriver.Quit();
+        }
     }
 }
